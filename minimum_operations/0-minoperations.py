@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 """Mininum Operation"""
 
-def minOperations(n):
-    """
-        Calculates the fewest number of operation needed
-        to result exactly n H characters in the file
-    """
 
-    if not n or n <= 1:
+def minOperations(n):
+    """Calculates the fewest number of operation needed"""
+    if n <= 1:
         return 0
-    operations = 0
-    for time in range(2, n+1):
-        while(n % time == 0):
-            operations += time
-            n = n / time
-    return operations
+    i = 2
+    pus = 0
+    while i <= n:
+        if n % i == 0:
+            pus += i
+            n = n / i
+        else:
+            i += 1
+    return pus
+        
